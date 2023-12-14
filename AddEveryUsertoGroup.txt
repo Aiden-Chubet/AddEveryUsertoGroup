@@ -1,0 +1,2 @@
+# Get all users in one OU and add them to the group Office 365 Standard
+Get-ADUser -Filter * -SearchScope OneLevel -SearchBase "OU=Employees,DC=Domain,DC=local" | ForEach-Object { Add-ADGroupMember -Identity "Office 365 Standard" -Members $_ }
